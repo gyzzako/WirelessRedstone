@@ -112,7 +112,7 @@ public class ConfigManager {
                 copyDefaults();
 
                 setValue(ConfigPaths.CONFIGVERSION, 4);
-                setValue(ConfigPaths.SENTRY, true);
+                setValue(ConfigPaths.SENTRY, false);
 
                 break;
             }
@@ -185,7 +185,7 @@ public class ConfigManager {
     }
 
     public boolean getSentry() {
-        return config.getBoolean(ConfigPaths.SENTRY.getValue(), true);
+        return config.getBoolean(ConfigPaths.SENTRY.getValue(), false);
     }
 
     public StorageType getStorageType() {

@@ -22,11 +22,10 @@ public class Utils {
      * @return If the plugin is compatible
      */
     public static boolean isCompatible() {
-        final String packageName = Bukkit.getServer().getClass().getPackage().getName();
-        String bukkitVersion = packageName.substring(packageName.lastIndexOf('.') + 1);
+        String bukkitVersion = Bukkit.getServer().getClass().getPackage().getSpecificationVersion();
 
         try {
-            String[] pieces = bukkitVersion.substring(1).split("_");
+            String[] pieces = bukkitVersion.split("\\.");
 
             return Integer.parseInt(pieces[0]) >= 1 && Integer.parseInt(pieces[1]) >= 8;
         } catch (NumberFormatException | NullPointerException e) {
@@ -40,11 +39,10 @@ public class Utils {
      * @return If the new material system is needed
      */
     public static boolean isNewMaterialSystem() {
-        final String packageName = Bukkit.getServer().getClass().getPackage().getName();
-        String bukkitVersion = packageName.substring(packageName.lastIndexOf('.') + 1);
+        String bukkitVersion = Bukkit.getServer().getClass().getPackage().getSpecificationVersion();
 
         try {
-            String[] pieces = bukkitVersion.substring(1).split("_");
+            String[] pieces = bukkitVersion.split("\\.");
 
             return Integer.parseInt(pieces[0]) >= 1 && Integer.parseInt(pieces[1]) >= 13;
         } catch (NumberFormatException | NullPointerException e) {
